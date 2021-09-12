@@ -43,13 +43,19 @@ function updateProgress(e){
 
 function nextSong(){
     songIndex++;
-    loadsong(songs[songIndex%songs.length]);
+    if(songIndex>songs.length-1){
+        songIndex=0
+    }
+    loadsong(songs[songIndex]);
     playSong();
 }
 
 function prevSong(){
     songIndex--;
-    loadsong(songs[songIndex%songs.length]);
+    if(songIndex<0){
+        songIndex=songs.length-1;
+    }
+    loadsong(songs[songIndex]);
     playSong();
 }
 
